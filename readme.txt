@@ -20,7 +20,7 @@ Use jQuery Vertical Scroller plugin to display posts in a widget as a vertical s
 
 == Screenshots ==
 
-'/assets/screenshot-1.png'
+'assets/screenshot-1.png'
 Widget Admin screen in Widget Widget Section
 
 == Changelog ==
