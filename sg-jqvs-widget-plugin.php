@@ -24,9 +24,9 @@ class sg_jquery_scroller_widget extends WP_Widget {
     function sg_jquery_scroller_widget() {
         $widget_ops = array(
 			'classname' => 'sg_jquery_scroller_widget_plugin_class',
-			'description' => 'Drop this in a widget area to add WP jQuery Vertical Scroller to your pages.'
+			'description' => 'Drop this in a widget area to add jQuery Vertical Scroller to your pages.'
 			);
-        $this->WP_Widget( 'sg_jquery_scroller_widget', 'WP jQuery Vertical Scroller', $widget_ops );
+        $this->WP_Widget( 'sg_jquery_scroller_widget', 'jQuery Vertical Scroller', $widget_ops );
 
         /* Register all javascripts used in the plugin. */
         wp_register_script( 'scrollerscript', plugins_url('/scripts/jquery-scroller-v1.min.js', __FILE__), array('jquery') );
