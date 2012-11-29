@@ -31,12 +31,11 @@ class sg_jquery_scroller_widget extends WP_Widget {
         /* Register all javascripts used in the plugin. */
         wp_register_script( 'scrollerscript', plugins_url('/scripts/jquery-scroller-v1.min.js', __FILE__), array('jquery') );
         wp_enqueue_script( 'scrollerscript' );
-
     }
 
      //build the widget settings form
     function form($instance) {
-        $defaults = array( 'title' => 'Recent Posts', 'mycategory' => '1', 'mycount' => '5', 'mydirection' => 'vertical', 'myvelocity' => '50', 'myposttype' => 'post', 'myreadmoretext' => 'read more...' );
+        $defaults = array( 'title' => 'Recent Posts', 'mycategory' => '1', 'mycount' => '5', 'mydirection' => 'bottom', 'myvelocity' => '50', 'myposttype' => 'post', 'myreadmoretext' => 'read more...' );
         $instance = wp_parse_args( (array) $instance, $defaults );
         $title = $instance['title'];
         $mycategory = $instance['mycategory'];
@@ -46,49 +45,62 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $myposttype = $instance['myposttype'];
         $myreadmoretext = $instance['myreadmoretext'];
 ?>
+
     <p>
-        Title:
+        <p>
+            Title:
             <input class="widefat"
                     name="<?php echo $this->get_field_name( 'title' ); ?>"
                     type="text"
                     value="<?php echo esc_attr( $title ); ?>" />
-        <br />
-        Velocity:
+
+        </p>
+        <p>
+            Velocity:
             <input class="widefat"
-                    name="<?php echo $this->get_field_name( 'myvelocity' ); ?>"
-                    type="text"
-                    value="<?php echo esc_attr( $myvelocity ); ?>" />
-        &nbsp; ex: 1 - 100
-        <br />
-        Direction:
-            <input class="widefat"
-                    name="<?php echo $this->get_field_name( 'mydirection' ); ?>"
-                    type="text"
-                    value="<?php echo esc_attr( $mydirection ); ?>" />
-        <br />
-        Post Type:
+                name="<?php echo $this->get_field_name( 'myvelocity' ); ?>"
+                type="text"
+                value="<?php echo esc_attr( $myvelocity ); ?>" />
+            &nbsp; ex: 1 - 100
+        </p>
+        <p>
+            Direction:<br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+                value="top" <?php checked( $mydirection, 'top' ); ?> >Top-to-Bottom
+            <br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+                value="bottom" <?php checked( $mydirection, 'bottom' ); ?> >Bottom-to-Top
+        </p>
+        <p>
+            Post Type:
             <input class="widefat"
                 name="<?php echo $this->get_field_name( 'myposttype' ); ?>"
                 type="text"
                 value="<?php echo esc_attr( $myposttype ); ?>" />
-        <br />
+        </p>
+        <p>
         Category:
             <input class="widefat"
                 name="<?php echo $this->get_field_name( 'mycategory' ); ?>"
                 type="text"
                 value="<?php echo esc_attr( $mycategory ); ?>" /> &nbsp; ex: 1 or 2 or 3 etc.
-        <br />
-        Count:
+        </p>
+        <p>
+            Count:
             <input class="widefat"
                     name="<?php echo $this->get_field_name( 'mycount' ); ?>"
                     type="text"
                     value="<?php echo esc_attr( $mycount ); ?>" />
-        <br />
-        Read more text:
+        </p>
+        <p>
+            Read more text:
             <input class="widefat"
                     name="<?php echo $this->get_field_name( 'myreadmoretext' ); ?>"
                     type="text"
                     value="<?php echo esc_attr( $myreadmoretext ); ?>" />
+        </p>
     </p>
 <?php
     }
@@ -140,9 +152,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
 		/*font-family:'Trebuchet MS',Arial;*/
         text-align: left;
 	}
-    .scrollingtext ul {
-        list-style-type: circle;
-    }
+
     .scrollingtext ul li {
         padding-bottom: 10px;
     }
@@ -153,7 +163,8 @@ class sg_jquery_scroller_widget extends WP_Widget {
         //create a vertical scroller...
         $('.vertical_scroller<?php echo $myrandom; ?>').SetScroller({
                 velocity: <?php echo $myvelocity ?>, /*50,*/
-                direction: '<?php echo $mydirection ?>'  /*'vertical' */
+                direction: 'vertical',  /*'vertical' */
+                startfrom: '<?php echo $mydirection ?>'
         });
     });
 </script>
@@ -177,8 +188,6 @@ class sg_jquery_scroller_widget extends WP_Widget {
                     foreach( $posts_array as $post ) : setup_postdata($post);
                 ?>
                 <li>
-                    <img alt="f" src="<?php echo plugins_url( '/images/bullet.png', __FILE__); ?>" />
-                    &nbsp;&nbsp;&nbsp;
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                 </li>
                 <?php endforeach; ?>
