@@ -3,7 +3,7 @@
 Plugin Name: WP jQuery Vertical Scroller
 Plugin URI: http://sirisgraphics.com/wordpress-plugins/wp-scroller
 Description: A plugin to add a widget to scroll posts in your sidebar or footer widgets for WordPress powered by jQuery
-Version: 1.0
+Version: 1.1
 Author: Vamsi Pulavarthi
 Author URI: http://sirisgraphics.com/author/vamsi
 License: GPLv2
@@ -24,9 +24,9 @@ class sg_jquery_scroller_widget extends WP_Widget {
     function sg_jquery_scroller_widget() {
         $widget_ops = array(
 			'classname' => 'sg_jquery_scroller_widget_plugin_class',
-			'description' => 'Drop this in a widget area to add jQuery Vertical Scroller to your pages.'
+			'description' => 'Drop this in a widget area to add WP jQuery Vertical Scroller to your pages.'
 			);
-        $this->WP_Widget( 'sg_jquery_scroller_widget', 'jQuery Vertical Scroller', $widget_ops );
+        $this->WP_Widget( 'sg_jquery_scroller_widget', 'WP jQuery Vertical Scroller', $widget_ops );
 
         /* Register all javascripts used in the plugin. */
         wp_register_script( 'scrollerscript', plugins_url('/scripts/jquery-scroller-v1.min.js', __FILE__), array('jquery') );
@@ -65,12 +65,12 @@ class sg_jquery_scroller_widget extends WP_Widget {
         </p>
         <p>
             Direction:<br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>"
                 value="top" <?php checked( $mydirection, 'top' ); ?> >Top-to-Bottom
             <br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>"
                 value="bottom" <?php checked( $mydirection, 'bottom' ); ?> >Bottom-to-Top
         </p>
         <p>

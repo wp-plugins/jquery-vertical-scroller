@@ -7,11 +7,11 @@ Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Use jQuery Vertical Scroller plugin to display posts in a widget as a vertical scroll. Supports multiple instances and custom post types.
+Use WP jQuery Vertical Scroller plugin to display posts in a widget as a vertical scroll. Supports multiple instances and custom post types.
 
 == Description ==
 
-WP jQuery Vertical Scroller plugin is our attempt to create a easy to use widget for adding vertical scrolling to your wordpress site. 
+WP WP jQuery Vertical Scroller plugin is our attempt to create a easy to use widget for adding vertical scrolling to your wordpress site. 
 
 You can scroll anything from your recent posts to custom posts you might have createdfor other plugins. The scroll is flexible to allow you to scroll in 2 vertical directions. Top-to-Bottom or Bottom-to-Top.
 
