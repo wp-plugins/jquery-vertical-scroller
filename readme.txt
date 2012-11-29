@@ -75,4 +75,4 @@ Finally, Thank you for using our plugin.
 == Upgrade Notice ==
 
 = 1.1 =
-* If you experience any hiccups, email us at info@sirisgraphics.com
+* When upgrading, please remove and re-dd the widget to your widget area. If you experience any hiccups, email us at info@sirisgraphics.com
