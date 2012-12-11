@@ -2,8 +2,8 @@
 Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
-Tested up to: 3.4.2
-Stable tag: 1.1
+Tested up to: 3.5
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,26 +11,32 @@ Use WP jQuery Vertical Scroller plugin to display posts in a widget as a vertica
 
 == Description ==
 
-WP jQuery Vertical Scroller plugin is our attempt to create a easy to use widget for adding vertical scrolling to your wordpress site. 
+WP WP jQuery Vertical Scroller plugin is our attempt to create a easy to use widget for adding vertical scrolling to your wordpress site. 
 
 You can scroll anything from your recent posts to custom posts you might have createdfor other plugins. The scroll is flexible to allow you to scroll in 2 vertical directions. Top-to-Bottom or Bottom-to-Top.
 
-Do you need more than 1 scroller? No problem with this plug-in. All you need to do is drag-&-drop another copy of the scroller into your widget area and set it up. No need to leave the widgets screen. 
+= If you are upgrading, you will have to remove and add the widget again. Sorry for the trouble!!! =
 
-Want to see a working copy before deciding whether you want to use this plugin? Come to our website to see this plugin at work: <a href="http://sirisgraphics.com" target="_blank">http://sirisgraphics.com</a>
+= Do you need more than one scroller? =
+No problem with this plug-in. All you need to do is drag-&-drop another copy of the scroller into your widget area and set it up. No need to leave the widgets screen. 
+
+= Want to see a working copy before deciding? = 
+Just scroll on over to our website to see this plugin at work: <a href="http://sirisgraphics.com" target="_blank">http://sirisgraphics.com</a>
 
 = Features =
 <ul>
 <li>Easy to install and configure.</li>
 <li>It scrolls vertically so you can display more posts.</li>
+<li>You can scroll top-to-bottom or bottom-to-top.</li>
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
+<li>You can customize to display either the content, excerpt or just the heading.</li>
 <li>Supports custom 'read more...' text so you can add your own custom text</li>
 </ul>
 
 = Localization =
-jQuery Vertical Slider is currently available in only English Language but we will soon update this plugin to support localization.
+jQuery Vertical Slider supports full localization. Just place your .mo files in the languages folder and set your language code in the wp-config.php file.
 
 = Support =
 Email us on info@sirisgraphics.com or <a href="http://sirisgraphics.com">contact us</a> for any kind of support. We promise to get back to you as soon a possible.
@@ -65,6 +71,11 @@ Finally, Thank you for using our plugin.
 
 == Changelog ==
 
+= 1.2 =
+* Tested with Wordpress 3.5
+* Added full localization support
+* Added support to show content or excerpt
+
 = 1.1 =
 * Added a new easy to use selection to add 2 scroll modes - Top-to-Bottom and Bottom-to-Top.
 * Removed the standard list icon being displayed in the old version since it was conflicting with the built-in bullet icons for some themes.
@@ -74,5 +85,6 @@ Finally, Thank you for using our plugin.
 
 == Upgrade Notice ==
 
-= 1.1 =
-* When upgrading, please remove and re-dd the widget to your widget area. If you experience any hiccups, email us at info@sirisgraphics.com
+= 1.2 =
+* You may have to remove and re-add the widget. We added new features that may need your settings to be refreshed
+* As usual, if you any hiccups, email us at info@sirisgraphics.com

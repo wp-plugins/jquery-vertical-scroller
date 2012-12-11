@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WP jQuery Vertical Scroller
-Plugin URI: http://sirisgraphics.com/wordpress-plugins/wp-scroller
+Plugin URI: http://sirisgraphics.com/development/introducing-wp-jquery-vertical-scroller
 Description: A plugin to add a widget to scroll posts in your sidebar or footer widgets for WordPress powered by jQuery
-Version: 1.1
+Version: 1.2
 Author: Vamsi Pulavarthi
-Author URI: http://sirisgraphics.com/author/vamsi
+Author URI: http://sirisgraphics.com/
 License: GPLv2
 */
 
@@ -14,6 +14,8 @@ add_action( 'widgets_init', 'sg_jquery_scroller_widget_plugin' );
 
  //register our widget
 function sg_jquery_scroller_widget_plugin() {
+    $plugin_dir = basename(dirname(__FILE__));
+    load_plugin_textdomain('sg-jqvs', false, $plugin_dir . '/languages' );
     register_widget( 'sg_jquery_scroller_widget' );
 }
 
@@ -22,11 +24,14 @@ class sg_jquery_scroller_widget extends WP_Widget {
 
     //process the new widget
     function sg_jquery_scroller_widget() {
+
+        $plugin_description = __('Drop this in a widget area to add jQuery Vertical Scroller to your pages.', 'sg-jqvs' );
+        $plugin_title = __( 'jQuery Vertical Scroller', 'sg-jqvs' );
         $widget_ops = array(
 			'classname' => 'sg_jquery_scroller_widget_plugin_class',
-			'description' => 'Drop this in a widget area to add jQuery Vertical Scroller to your pages.'
+			'description' => $plugin_description
 			);
-        $this->WP_Widget( 'sg_jquery_scroller_widget', 'jQuery Vertical Scroller', $widget_ops );
+        $this->WP_Widget( 'sg_jquery_scroller_widget', $plugin_title, $widget_ops );
 
         /* Register all javascripts used in the plugin. */
         wp_register_script( 'scrollerscript', plugins_url('/scripts/jquery-scroller-v1.min.js', __FILE__), array('jquery') );
@@ -35,7 +40,22 @@ class sg_jquery_scroller_widget extends WP_Widget {
 
      //build the widget settings form
     function form($instance) {
-        $defaults = array( 'title' => 'Recent Posts', 'mycategory' => '1', 'mycount' => '5', 'mydirection' => 'bottom', 'myvelocity' => '50', 'myposttype' => 'post', 'myreadmoretext' => 'read more...' );
+
+        //Setup the default setting strings for localization
+        $default_title = __( 'Recent posts', 'sg-jqvs');
+        $default_readmore = __( 'read more...', 'sg-jqvs');
+
+        //Setup the default values for the widget
+        $defaults = array( 'title' => $default_title, 
+                            'mycategory' => '1', 
+                            'mycount' => '5', 
+                            'mydirection' => 'bottom', 
+                            'myvelocity' => '50', 
+                            'myposttype' => 'post', 
+                            'myincludecontent' => 'no',
+                            'myreadmoretext' => $default_readmore );
+        
+        //Assign the default values or original settings to current widget
         $instance = wp_parse_args( (array) $instance, $defaults );
         $title = $instance['title'];
         $mycategory = $instance['mycategory'];
@@ -43,12 +63,13 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $mydirection = $instance['mydirection'];
         $myvelocity = $instance['myvelocity'];
         $myposttype = $instance['myposttype'];
+        $myincludecontent = $instance['myincludecontent'];
         $myreadmoretext = $instance['myreadmoretext'];
 ?>
 
     <p>
         <p>
-            Title:
+            <?php _e( 'Title:', 'sg-jqvs' ); ?>
             <input class="widefat"
                     name="<?php echo $this->get_field_name( 'title' ); ?>"
                     type="text"
@@ -56,7 +77,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
 
         </p>
         <p>
-            Velocity:
+            <?php _e( 'Velocity:', 'sg-jqvs' ); ?>
             <input class="widefat"
                 name="<?php echo $this->get_field_name( 'myvelocity' ); ?>"
                 type="text"
@@ -64,38 +85,53 @@ class sg_jquery_scroller_widget extends WP_Widget {
             &nbsp; ex: 1 - 100
         </p>
         <p>
-            Direction:<br />
-            <input type="radio"
-                name="<?php echo $this->get_field_name( 'mydirection' ); ?>"
-                value="top" <?php checked( $mydirection, 'top' ); ?> >Top-to-Bottom
+            <?php _e( 'Direction:', 'sg-jqvs' ); ?><br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+                value="top" <?php checked( $mydirection, 'top' ); ?> ><?php _e( 'Top-to-Bottom', 'sg-jqvs' ); ?>
             <br />
-            <input type="radio"
-                name="<?php echo $this->get_field_name( 'mydirection' ); ?>"
-                value="bottom" <?php checked( $mydirection, 'bottom' ); ?> >Bottom-to-Top
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+                value="bottom" <?php checked( $mydirection, 'bottom' ); ?> ><?php _e( 'Bottom-to-Top', 'sg-jqvs' ); ?>
         </p>
         <p>
-            Post Type:
+            <?php _e( 'Post Type:', 'sg-jqvs' ); ?>
             <input class="widefat"
                 name="<?php echo $this->get_field_name( 'myposttype' ); ?>"
                 type="text"
                 value="<?php echo esc_attr( $myposttype ); ?>" />
         </p>
         <p>
-        Category:
+        <?php _e( 'Category:', 'sg-jqvs' ); ?>
             <input class="widefat"
                 name="<?php echo $this->get_field_name( 'mycategory' ); ?>"
                 type="text"
                 value="<?php echo esc_attr( $mycategory ); ?>" /> &nbsp; ex: 1 or 2 or 3 etc.
         </p>
         <p>
-            Count:
+            <?php _e( 'Count:', 'sg-jqvs' ); ?>
             <input class="widefat"
                     name="<?php echo $this->get_field_name( 'mycount' ); ?>"
                     type="text"
                     value="<?php echo esc_attr( $mycount ); ?>" />
         </p>
         <p>
-            Read more text:
+            <?php _e( 'Include Content:', 'sg-jqvs' ); ?>
+            <br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>" 
+                value="no" <?php checked( $myincludecontent, 'no' ); ?> ><?php _e( 'No', 'sg-jqvs' ); ?>
+            <br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>" 
+                value="content" <?php checked( $myincludecontent, 'content' ); ?> ><?php _e( 'Full Content', 'sg-jqvs' ); ?>
+            <br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>" 
+                value="excerpt" <?php checked( $myincludecontent, 'excerpt' ); ?> ><?php _e( 'Excerpt only', 'sg-jqvs' ); ?>
+        </p>
+        <p>
+            <?php _e( 'Read more text:', 'sg-jqvs' ); ?>
             <input class="widefat"
                     name="<?php echo $this->get_field_name( 'myreadmoretext' ); ?>"
                     type="text"
@@ -114,6 +150,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $instance['mydirection'] = strip_tags( $new_instance['mydirection'] );
         $instance['myvelocity'] = strip_tags( $new_instance['myvelocity'] );
         $instance['myposttype'] = strip_tags( $new_instance['myposttype'] );
+        $instance['myincludecontent'] = strip_tags( $new_instance['myincludecontent'] );
         $instance['myreadmoretext'] = strip_tags( $new_instance['myreadmoretext'] );
         return $instance;
     }
@@ -126,9 +163,10 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $title = apply_filters( 'widget_title', $instance['title'] );
         $mycategory = empty( $instance['mycategory'] ) ? '&nbsp;' : $instance['mycategory'];
         $mycount = empty( $instance['mycount'] ) ? '&nbsp;' : $instance['mycount'];
+        $mydirection = empty( $instance['mydirection'] ) ? '&nbsp;' : $instance['mydirection'];
         $myvelocity = empty( $instance['myvelocity'] ) ? '&nbsp;' : $instance['myvelocity'];
         $myposttype = empty( $instance['myposttype'] ) ? '&nbsp;' : $instance['myposttype'];
-        $mydirection = empty( $instance['mydirection'] ) ? '&nbsp;' : $instance['mydirection'];
+        $myincludecontent = empty( $instance['myincludecontent'] ) ? '&nbsp;' : $instance['myincludecontent'];
         $myreadmoretext = empty( $instance['myreadmoretext'] ) ? '&nbsp;' : $instance['myreadmoretext'];
 
         if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
@@ -189,6 +227,11 @@ class sg_jquery_scroller_widget extends WP_Widget {
                 ?>
                 <li>
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <?php if ( $myincludecontent == 'content' ) { ?>
+                        <br /><?php the_content(); ?>
+                    <?php } elseif ( $myincludecontent == 'excerpt' ) { ?>
+                        <br /><?php the_excerpt(); ?>
+                    <?php } ?>
                 </li>
                 <?php endforeach; ?>
                 <?php $post = $tmp_post; ?>

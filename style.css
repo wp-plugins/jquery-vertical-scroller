@@ -1,3 +1,12 @@
+/*
+Plugin Name: WP jQuery Vertical Scroller
+Plugin URI: http://sirisgraphics.com/development/introducing-wp-jquery-vertical-scroller
+Description: A plugin to add a widget to scroll posts in your sidebar or footer widgets for WordPress powered by jQuery
+Version: 1.2
+Author: Vamsi Pulavarthi
+Author URI: http://sirisgraphics.com/
+License: GPLv2
+*/
 .slider {
     text-align: left;
 }
