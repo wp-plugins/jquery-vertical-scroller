@@ -15,8 +15,6 @@ WP WP jQuery Vertical Scroller plugin is our attempt to create a easy to use wid
 
 You can scroll anything from your recent posts to custom posts you might have createdfor other plugins. The scroll is flexible to allow you to scroll in 2 vertical directions. Top-to-Bottom or Bottom-to-Top.
 
-= If you are upgrading, you will have to remove and add the widget again. Sorry for the trouble!!! =
-
 = Do you need more than one scroller? =
 No problem with this plug-in. All you need to do is drag-&-drop another copy of the scroller into your widget area and set it up. No need to leave the widgets screen. 
 
