@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: WP jQuery Vertical Scroller
+Plugin Name: jQuery Vertical Scroller
 Plugin URI: http://sirisgraphics.com/development/introducing-wp-jquery-vertical-scroller
 Description: A plugin to add a widget to scroll posts in your sidebar or footer widgets for WordPress powered by jQuery
-Version: 1.2
+Version: 1.3
 Author: Vamsi Pulavarthi
 Author URI: http://sirisgraphics.com/
 License: GPLv2
@@ -47,6 +47,8 @@ class sg_jquery_scroller_widget extends WP_Widget {
 
         //Setup the default values for the widget
         $defaults = array( 'title' => $default_title, 
+                            'mywidth' => '100',
+                            'myheight' => '200',
                             'mycategory' => '1', 
                             'mycount' => '5', 
                             'mydirection' => 'bottom', 
@@ -58,6 +60,8 @@ class sg_jquery_scroller_widget extends WP_Widget {
         //Assign the default values or original settings to current widget
         $instance = wp_parse_args( (array) $instance, $defaults );
         $title = $instance['title'];
+        $mywidth = $instance['mywidth'];
+        $myheight = $instance['myheight'];
         $mycategory = $instance['mycategory'];
         $mycount = $instance['mycount'];
         $mydirection = $instance['mydirection'];
@@ -74,6 +78,22 @@ class sg_jquery_scroller_widget extends WP_Widget {
                     name="<?php echo $this->get_field_name( 'title' ); ?>"
                     type="text"
                     value="<?php echo esc_attr( $title ); ?>" />
+
+        </p>
+        <p>
+            <?php _e( 'Width:', 'sg-jqvs' ); ?>
+            <input class="widefat"
+                    name="<?php echo $this->get_field_name( 'mywidth' ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $mywidth ); ?>" />
+
+        </p>
+        <p>
+            <?php _e( 'Height:', 'sg-jqvs' ); ?>
+            <input class="widefat"
+                    name="<?php echo $this->get_field_name( 'myheight' ); ?>"
+                    type="text"
+                    value="<?php echo esc_attr( $myheight ); ?>" />
 
         </p>
         <p>
@@ -145,6 +165,8 @@ class sg_jquery_scroller_widget extends WP_Widget {
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
         $instance['title'] = strip_tags( $new_instance['title'] );
+        $instance['mywidth'] = strip_tags( $new_instance['mywidth'] );
+        $instance['myheight'] = strip_tags( $new_instance['myheight'] );
         $instance['mycategory'] = strip_tags( $new_instance['mycategory'] );
         $instance['mycount'] = strip_tags( $new_instance['mycount'] );
         $instance['mydirection'] = strip_tags( $new_instance['mydirection'] );
@@ -161,6 +183,8 @@ class sg_jquery_scroller_widget extends WP_Widget {
 
         echo $before_widget;
         $title = apply_filters( 'widget_title', $instance['title'] );
+        $mywidth = empty( $instance['mywidth'] ) ? '&nbsp;' : $instance['mywidth'];
+        $myheight = empty( $instance['myheight'] ) ? '&nbsp;' : $instance['myheight'];
         $mycategory = empty( $instance['mycategory'] ) ? '&nbsp;' : $instance['mycategory'];
         $mycount = empty( $instance['mycount'] ) ? '&nbsp;' : $instance['mycount'];
         $mydirection = empty( $instance['mydirection'] ) ? '&nbsp;' : $instance['mydirection'];
@@ -179,8 +203,8 @@ class sg_jquery_scroller_widget extends WP_Widget {
         display: block;
         overflow: hidden;
         float: left;
-        width:100%;
-        height:200px;
+        width: <?php echo $mywidth ?>%;  /* 100%; */
+        height: <?php echo $myheight ?>px; /* 200px; */
         padding: 2px 2px 2px 2px;
         margin-bottom: 10px;
 	}
@@ -240,17 +264,17 @@ class sg_jquery_scroller_widget extends WP_Widget {
     </div>  <!-- end of Vertical Scroller -->
 	<?php if ( $myposttype == 'post' ) { ?>
 		<br />
-		<div style="min-height: 20px; vertical-align: bottom;">
+		<div style="min-height: 20px; vertical-align: bottom; text-align: center;">
 			<br />
 			<?php $category_link = get_category_link( $mycategory ); ?>
-			<center><a href="<?php echo esc_url( $category_link ); ?>"><?php echo $myreadmoretext ?></a></center>
+			<a href="<?php echo esc_url( $category_link ); ?>"><?php echo $myreadmoretext ?></a>
 		</div>
 
 	<?php } else { ?>
 		<br />
-		<div style="min-height: 20px; vertical-align: bottom;">
+		<div style="min-height: 20px; vertical-align: bottom; text-align: center;">
 			<br />
-			<center><a href="<?php echo get_post_type_archive_link( $myposttype ); ?>"><?php echo $myreadmoretext ?></a></center>
+			<a href="<?php echo get_post_type_archive_link( $myposttype ); ?>"><?php echo $myreadmoretext ?></a>
 		</div>
 	<?php } ?>
 </div> <!-- end of Grid Container -->
