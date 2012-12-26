@@ -26,7 +26,7 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 <li>Easy to install and configure.</li>
 <li>It scrolls vertically so you can display more posts.</li>
 <li>You can scroll top-to-bottom or bottom-to-top.</li>
-<li>=!!!new!!! You can customize the height and width of the widget.=</li>
+<li>!!!new!!! You can customize the height and width of the widget.</li>
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
