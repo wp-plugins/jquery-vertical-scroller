@@ -3,15 +3,15 @@ Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Use WP jQuery Vertical Scroller plugin to display posts in a widget as a vertical scroll. Supports multiple instances and custom post types.
+Use jQuery Vertical Scroller plugin to display posts in a widget as a vertical scroll. Supports multiple instances and custom post types.
 
 == Description ==
 
-WP WP jQuery Vertical Scroller plugin is our attempt to create a easy to use widget for adding vertical scrolling to your wordpress site. 
+jQuery Vertical Scroller plugin is our attempt to create a easy to use widget for adding vertical scrolling to your wordpress site. 
 
 You can scroll anything from your recent posts to custom posts you might have createdfor other plugins. The scroll is flexible to allow you to scroll in 2 vertical directions. Top-to-Bottom or Bottom-to-Top.
 
@@ -26,6 +26,7 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 <li>Easy to install and configure.</li>
 <li>It scrolls vertically so you can display more posts.</li>
 <li>You can scroll top-to-bottom or bottom-to-top.</li>
+<li><b>!!!new!!! You can customize the height and width of the widget.</b></li>
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
@@ -69,6 +70,9 @@ Finally, Thank you for using our plugin.
 
 == Changelog ==
 
+= 1.3 =
+* Added features to manage width and height
+
 = 1.2 =
 * Tested with Wordpress 3.5
 * Added full localization support
@@ -83,6 +87,6 @@ Finally, Thank you for using our plugin.
 
 == Upgrade Notice ==
 
-= 1.2 =
-* You may have to remove and re-add the widget. We added new features that may need your settings to be refreshed
+= 1.3 =
+* Added features to manage width and height
 * As usual, if you any hiccups, email us at info@sirisgraphics.com
