@@ -96,9 +96,10 @@ Shortcode
 
 == Screenshots ==
 
-1. Widget Admin screen in Widget Widget Section
-2. Multiple widget instances simultaneusly
-3. Multiple instances working seamlessly on the site
+1. Scroller in a post
+2. Widget Admin screen in Widget Widget Section
+3. Multiple widget instances simultaneusly
+4. Multiple instances working seamlessly on the site
 
 == Changelog ==
 
