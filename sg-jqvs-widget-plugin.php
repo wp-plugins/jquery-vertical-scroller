@@ -1,13 +1,16 @@
 <?php
 /*
 Plugin Name: jQuery Vertical Scroller
-Plugin URI: http://sirisgraphics.com/development/introducing-wp-jquery-vertical-scroller
+Plugin URI: http://sirisgraphics.com/development/jquery-vertical-scroller
 Description: A plugin to add a widget to scroll posts in your sidebar or footer widgets for WordPress powered by jQuery
-Version: 1.3
+Version: 2.0
 Author: Vamsi Pulavarthi
 Author URI: http://sirisgraphics.com/
 License: GPLv2
 */
+
+// Register the shortcode
+add_shortcode( 'sgvscroller', 'sg_jquery_scroller_shortcode' );
 
 // use widgets_init action hook to execute custom function
 add_action( 'widgets_init', 'sg_jquery_scroller_widget_plugin' );
@@ -19,7 +22,7 @@ function sg_jquery_scroller_widget_plugin() {
     register_widget( 'sg_jquery_scroller_widget' );
 }
 
-//boj_widget_my_info class
+//Vertical Scroller class
 class sg_jquery_scroller_widget extends WP_Widget {
 
     //process the new widget
@@ -38,7 +41,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
         wp_enqueue_script( 'scrollerscript' );
     }
 
-     //build the widget settings form
+     //Widget settings form
     function form($instance) {
 
         //Setup the default setting strings for localization
@@ -281,5 +284,84 @@ class sg_jquery_scroller_widget extends WP_Widget {
 <?php
         echo $after_widget;
     }
+}
+
+//Detailed shortcode functionality
+function sg_jquery_scroller_shortcode( $atts ) {
+    extract( shortcode_atts( array(
+		"postcount" => '5',
+        "category" => '1',
+        "posttype" => 'post',
+        "width" => '250px',
+        "height" => '200px',
+        "startfrom" => 'bottom'
+	), $atts ) );
+
+    $myscroller = "";
+    global $post;
+    $tmp_post = $post;
+    $myscrandom = wp_rand(0, 25);
+    $args = array(
+        'numberposts'     => $postcount,
+        'category'        => $category,
+        'orderby'         => 'post_date',
+        'order'           => 'DESC',
+        'post_type'       => $posttype,
+        'post_status'     => 'publish',
+        'suppress_filters' => false
+        );
+    $posts_array = get_posts( $args );
+    $content = "";
+    foreach( $posts_array as $post ) : setup_postdata($post);
+        $permalink = get_permalink();
+        $title = get_the_title();
+        $content = $content . "<li><a href=" . $permalink . ">" . $title . "</a></li>";
+    endforeach;
+
+    $myscroller = "<style type='text/css'>
+	    .vertical_scroller{$myscrandom} {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            float: left;
+            width: $width;
+            height: $height;
+            padding: 2px 2px 2px 2px;
+            margin-bottom: 10px;
+	    }
+	    .scrollingtext {
+		    position:absolute;
+		    white-space: normal;
+            text-align: left;
+	    }
+        .scrollingtext ul {
+            text-indent: none;        
+        }
+        .scrollingtext ul li {
+            padding-bottom: 10px;
+            list-style-type: none;
+        }
+        </style>
+        <script type='text/javascript'>
+            jQuery(document).ready(function($) {
+                $('.vertical_scroller{$myscrandom}').SetScroller({
+                        velocity: 50,
+                        direction: 'vertical',
+                        startfrom: '{$startfrom}'
+                });
+            });
+        </script>
+
+        <div class='gridContainer clearfix'>
+            <div class='vertical_scroller{$myscrandom}'>
+                <div class='scrollingtext'>
+                    <ul>
+                        {$content}
+                    </ul>
+                </div> <!-- end of scrolling text -->
+            </div>  <!-- end of Vertical Scroller -->
+        </div>";
+
+    return $myscroller;
 }
 ?>
