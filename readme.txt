@@ -7,7 +7,7 @@ Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Use jQuery Vertical Scroller plugin to display posts as a vertical scroll in a widget, post or page. Supports multiple instances. The widget also supports custom post types.
+Use jQuery Vertical Scroller plugin to display posts as a vertical scroll in a widget, post or page. Supports multiple instances.
 
 == Description ==
 
@@ -43,7 +43,8 @@ jQuery Vertical Slider supports full localization. Just place your .mo files in 
 
 postcount (optional, default value = 5): Sets the number of posts displayed by the scroller. Usage: postcount="5".
 category (optional, default value = 1): Sets the category to be displayed by the scroller. Usage: category="1".
-posttype (optional, default value = post): Sets the category to be displayed by the scroller. You can either use 'post', for normal posts. For scrolling custom post types, replace it with the custom post type Usage: posttype="post". 
+posttype (optional, default value = post): Sets the category to be displayed by the scroller. You can either use 'post', for normal posts. For scrolling
+custom post types, replace it with the custom post type Usage: posttype="post". 
 width(optional, default value = 1): Sets the category to be displayed by the scroller. Usage: width="250px".
 height (optional, default value = 200px): Sets the category to be displayed by the scroller. Usage: height="200px".
 startfrom (optional, default value = bottom): Sets the category to be displayed by the scroller. Usage: startfrom="bottom". Options: ‘bottom’ or ‘top’.
