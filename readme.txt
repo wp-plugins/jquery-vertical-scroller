@@ -41,13 +41,15 @@ jQuery Vertical Slider supports full localization. Just place your .mo files in 
 = Shortcode = 
 <b>Usage:</b> [sgvscroller postcount="5" category="1" posttype="post" width="250px" height="200px" startfrom="bottom"]
 
-postcount (optional, default value = 5): Sets the number of posts displayed by the scroller. Usage: postcount="5".
-category (optional, default value = 1): Sets the category to be displayed by the scroller. Usage: category="1".
-posttype (optional, default value = post): Sets the category to be displayed by the scroller. You can either use 'post', for normal posts. For scrolling
-custom post types, replace it with the custom post type Usage: posttype="post". 
-width(optional, default value = 1): Sets the category to be displayed by the scroller. Usage: width="250px".
-height (optional, default value = 200px): Sets the category to be displayed by the scroller. Usage: height="200px".
-startfrom (optional, default value = bottom): Sets the category to be displayed by the scroller. Usage: startfrom="bottom". Options: ‘bottom’ or ‘top’.
+<ul>
+<li>postcount (optional, default value = 5): Sets the number of posts displayed by the scroller. Usage: postcount="5".<li>
+<li>category (optional, default value = 1): Sets the category to be displayed by the scroller. Usage: category="1".<li>
+<li>posttype (optional, default value = post): Sets the category to be displayed by the scroller. You can either use 'post', for normal posts. For scrolling<li>
+<li>custom post types, replace it with the custom post type Usage: posttype="post".<li>
+<li>width(optional, default value = 1): Sets the category to be displayed by the scroller. Usage: width="250px".<li>
+<li>height (optional, default value = 200px): Sets the category to be displayed by the scroller. Usage: height="200px".<li>
+<li>startfrom (optional, default value = bottom): Sets the category to be displayed by the scroller. Usage: startfrom="bottom". Options: ‘bottom’ or ‘top’.<li>
+</ul>
 
 <b>Shortcode Features</b>
 <ul>
