@@ -3,7 +3,7 @@ Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,7 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
 <li>You can customize to display either the content, excerpt or just the heading.</li>
+<li>You can customize to display the post date.</li>
 <li>Supports custom 'read more...' text so you can add your own custom text</li>
 </ul>
 
@@ -39,7 +40,7 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 jQuery Vertical Slider supports full localization. Just place your .mo files in the languages folder and set your language code in the wp-config.php file.
 
 = Shortcode = 
-<b>Usage:</b> [sgvscroller postcount="5" category="1" posttype="post" width="250px" height="200px" startfrom="bottom"]
+<b>Usage:</b> [sgvscroller postcount="5" category="1" posttype="post" width="250px" height="200px" startfrom="bottom" includecontent="excerpt" showdate="true"]
 
 postcount (optional, default value = 5): Sets the number of posts displayed by the scroller. Usage: postcount="5".
 
@@ -47,12 +48,15 @@ category (optional, default value = 1): Sets the category to be displayed by the
 
 posttype (optional, default value = post): Sets the category to be displayed by the scroller. You can either use 'post', for normal posts. For scrolling custom post types, replace it with the custom post type Usage: posttype="post".
 
-width(optional, default value = 1): Sets the category to be displayed by the scroller. Usage: width="250px".
+width(optional, default value = 1): Sets the width of the scroller. Usage: width="250px".
 
-height (optional, default value = 200px): Sets the category to be displayed by the scroller. Usage: height="200px".
+height (optional, default value = 200px): Sets the height of the scroller. Usage: height="200px".
 
-startfrom (optional, default value = bottom): Sets the category to be displayed by the scroller. Usage: startfrom="bottom". Options: ‘bottom’ or ‘top’.
+startfrom (optional, default value = bottom): Sets the direction of scroll for the scroller. Usage: startfrom="bottom". Options: ‘bottom’ or ‘top’.
 
+includecontent (optional, default value = none): Allows you to display excerpt, if desired. Usage: includecontent="excerpt". Optons: 'excerpt' or 'none'
+
+showdate (optional, default value = false): Allows you to display the post date for each post displayed in the scroller. Usage: showdate="true". Options: 'true' or 'false'
 
 <b>Shortcode Features</b>
 <ul>
@@ -63,6 +67,8 @@ startfrom (optional, default value = bottom): Sets the category to be displayed 
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
+<li>You can customize to display either the excerpt or just the heading.</li>
+<li>You can customize to display the post date.</li>
 <li>Displays 'read more...' text at bottom of scroller</li>
 </ul>
 
@@ -103,6 +109,9 @@ Shortcode
 
 == Changelog ==
 
+= 2.0 = 
+* Added shortcode support
+
 = 1.3 =
 * Added features to manage width and height
 
@@ -120,6 +129,7 @@ Shortcode
 
 == Upgrade Notice ==
 
-= 1.3 =
-* Added features to manage width and height
+= 2.1 =
+* Updated shortcode function to add excerpt and date
+* Updated widget to add date
 * As usual, if you any hiccups, email us at info@sirisgraphics.com

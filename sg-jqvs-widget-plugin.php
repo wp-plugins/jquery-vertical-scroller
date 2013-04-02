@@ -3,7 +3,7 @@
 Plugin Name: jQuery Vertical Scroller
 Plugin URI: http://sirisgraphics.com/development/jquery-vertical-scroller-2-0
 Description: A plugin to add a widget to scroll posts in your sidebar or footer widgets for WordPress powered by jQuery
-Version: 2.0
+Version: 2.1
 Author: Vamsi Pulavarthi
 Author URI: http://sirisgraphics.com/
 License: GPLv2
@@ -58,6 +58,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
                             'myvelocity' => '50', 
                             'myposttype' => 'post', 
                             'myincludecontent' => 'no',
+                            'myshowdate' => 'false',
                             'myreadmoretext' => $default_readmore );
         
         //Assign the default values or original settings to current widget
@@ -71,6 +72,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $myvelocity = $instance['myvelocity'];
         $myposttype = $instance['myposttype'];
         $myincludecontent = $instance['myincludecontent'];
+        $myshowdate = $instance['myshowdate'];
         $myreadmoretext = $instance['myreadmoretext'];
 ?>
 
@@ -154,6 +156,16 @@ class sg_jquery_scroller_widget extends WP_Widget {
                 value="excerpt" <?php checked( $myincludecontent, 'excerpt' ); ?> ><?php _e( 'Excerpt only', 'sg-jqvs' ); ?>
         </p>
         <p>
+            <?php _e( 'Show Date:', 'sg-jqvs' ); ?><br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'myshowdate' ); ?>" 
+                value="true" <?php checked( $myshowdate, 'true' ); ?> ><?php _e( 'True', 'sg-jqvs' ); ?>
+            <br />
+            <input type="radio" 
+                name="<?php echo $this->get_field_name( 'myshowdate' ); ?>" 
+                value="false" <?php checked( $myshowdate, 'false' ); ?> ><?php _e( 'False', 'sg-jqvs' ); ?>
+        </p>
+        <p>
             <?php _e( 'Read more text:', 'sg-jqvs' ); ?>
             <input class="widefat"
                     name="<?php echo $this->get_field_name( 'myreadmoretext' ); ?>"
@@ -176,6 +188,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $instance['myvelocity'] = strip_tags( $new_instance['myvelocity'] );
         $instance['myposttype'] = strip_tags( $new_instance['myposttype'] );
         $instance['myincludecontent'] = strip_tags( $new_instance['myincludecontent'] );
+        $instance['myshowdate'] = strip_tags( $new_instance['myshowdate'] );
         $instance['myreadmoretext'] = strip_tags( $new_instance['myreadmoretext'] );
         return $instance;
     }
@@ -194,6 +207,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $myvelocity = empty( $instance['myvelocity'] ) ? '&nbsp;' : $instance['myvelocity'];
         $myposttype = empty( $instance['myposttype'] ) ? '&nbsp;' : $instance['myposttype'];
         $myincludecontent = empty( $instance['myincludecontent'] ) ? '&nbsp;' : $instance['myincludecontent'];
+        $myshowdate = empty( $instance['myshowdate'] ) ? '&nbsp;' : $instance['myshowdate'];
         $myreadmoretext = empty( $instance['myreadmoretext'] ) ? '&nbsp;' : $instance['myreadmoretext'];
 
         if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
@@ -254,6 +268,11 @@ class sg_jquery_scroller_widget extends WP_Widget {
                 ?>
                 <li>
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <?php if ( $myshowdate == 'true' ) { ?>
+                        <br /><?php 
+                                $pfx_date = get_the_date();
+                                echo $pfx_date; ?>
+                    <?php } ?>
                     <?php if ( $myincludecontent == 'content' ) { ?>
                         <br /><?php the_content(); ?>
                     <?php } elseif ( $myincludecontent == 'excerpt' ) { ?>
@@ -294,7 +313,9 @@ function sg_jquery_scroller_shortcode( $atts ) {
         "posttype" => 'post',
         "width" => '250px',
         "height" => '200px',
-        "startfrom" => 'bottom'
+        "startfrom" => 'bottom',
+        "includecontent" => 'none',
+        "showdate" => 'false'
 	), $atts ) );
 
     $myscroller = "";
@@ -315,7 +336,16 @@ function sg_jquery_scroller_shortcode( $atts ) {
     foreach( $posts_array as $post ) : setup_postdata($post);
         $permalink = get_permalink();
         $title = get_the_title();
-        $content = $content . "<li><a href=" . $permalink . ">" . $title . "</a></li>";
+        $content = $content . "<li><a href=" . $permalink . ">" . $title . "</a>";
+        if ( $showdate == 'true' ) {
+            $thedate = "<p>" . get_the_date() . "</p>";
+            $content = $content . $thedate;
+        }
+        if ( $includecontent == 'excerpt' ) {
+            $theexcerpt = "<p>" . get_the_excerpt() . "</p>";
+            $content = $content . $theexcerpt;
+        }
+        $content = $content . "</li>";
     endforeach;
 
     $myscroller = "<style type='text/css'>
