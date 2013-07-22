@@ -2,8 +2,8 @@
 Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
-Tested up to: 3.5
-Stable tag: 2.1
+Tested up to: 3.5.2
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,10 @@ Shortcode
 
 == Changelog ==
 
+= 2.1 = 
+* Updated shortcode function to add excerpt and date
+* Updated widget to add date
+
 = 2.0 = 
 * Added shortcode support
 
@@ -129,7 +133,6 @@ Shortcode
 
 == Upgrade Notice ==
 
-= 2.1 =
-* Updated shortcode function to add excerpt and date
-* Updated widget to add date
+= 2.2 =
+* Added full content support in shortcode
 * As usual, if you any hiccups, email us at info@sirisgraphics.com

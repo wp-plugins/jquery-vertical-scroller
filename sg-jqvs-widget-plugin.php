@@ -345,6 +345,10 @@ function sg_jquery_scroller_shortcode( $atts ) {
             $theexcerpt = "<p>" . get_the_excerpt() . "</p>";
             $content = $content . $theexcerpt;
         }
+        if ( $includecontent == 'content' ) {
+            $theexcerpt = "<p>" . get_the_content() . "</p>";
+            $content = $content . $theexcerpt;
+        }
         $content = $content . "</li>";
     endforeach;
 
