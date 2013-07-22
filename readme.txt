@@ -54,7 +54,7 @@ height (optional, default value = 200px): Sets the height of the scroller. Usage
 
 startfrom (optional, default value = bottom): Sets the direction of scroll for the scroller. Usage: startfrom="bottom". Options: ‘bottom’ or ‘top’.
 
-includecontent (optional, default value = none): Allows you to display excerpt, if desired. Usage: includecontent="excerpt". Optons: 'excerpt' or 'none'
+includecontent (optional, default value = none): Allows you to display excerpt, if desired. Usage: includecontent="excerpt". Optons: 'content', 'excerpt' or 'none'
 
 showdate (optional, default value = false): Allows you to display the post date for each post displayed in the scroller. Usage: showdate="true". Options: 'true' or 'false'
 
