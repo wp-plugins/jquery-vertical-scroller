@@ -3,7 +3,7 @@
 Plugin Name: jQuery Vertical Scroller
 Plugin URI: http://sirisgraphics.com/development/jquery-vertical-scroller-2-0
 Description: A plugin to add a widget to scroll posts in your sidebar or footer widgets for WordPress powered by jQuery
-Version: 2.1
+Version: 2.2
 Author: Vamsi Pulavarthi
 Author URI: http://sirisgraphics.com/
 License: GPLv2
@@ -49,18 +49,18 @@ class sg_jquery_scroller_widget extends WP_Widget {
         $default_readmore = __( 'read more...', 'sg-jqvs');
 
         //Setup the default values for the widget
-        $defaults = array( 'title' => $default_title, 
+        $defaults = array( 'title' => $default_title,
                             'mywidth' => '100',
                             'myheight' => '200',
-                            'mycategory' => '1', 
-                            'mycount' => '5', 
-                            'mydirection' => 'bottom', 
-                            'myvelocity' => '50', 
-                            'myposttype' => 'post', 
+                            'mycategory' => '1',
+                            'mycount' => '5',
+                            'mydirection' => 'bottom',
+                            'myvelocity' => '50',
+                            'myposttype' => 'post',
                             'myincludecontent' => 'no',
                             'myshowdate' => 'false',
                             'myreadmoretext' => $default_readmore );
-        
+
         //Assign the default values or original settings to current widget
         $instance = wp_parse_args( (array) $instance, $defaults );
         $title = $instance['title'];
@@ -111,12 +111,12 @@ class sg_jquery_scroller_widget extends WP_Widget {
         </p>
         <p>
             <?php _e( 'Direction:', 'sg-jqvs' ); ?><br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>"
                 value="top" <?php checked( $mydirection, 'top' ); ?> ><?php _e( 'Top-to-Bottom', 'sg-jqvs' ); ?>
             <br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'mydirection' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'mydirection' ); ?>"
                 value="bottom" <?php checked( $mydirection, 'bottom' ); ?> ><?php _e( 'Bottom-to-Top', 'sg-jqvs' ); ?>
         </p>
         <p>
@@ -143,26 +143,26 @@ class sg_jquery_scroller_widget extends WP_Widget {
         <p>
             <?php _e( 'Include Content:', 'sg-jqvs' ); ?>
             <br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>"
                 value="no" <?php checked( $myincludecontent, 'no' ); ?> ><?php _e( 'No', 'sg-jqvs' ); ?>
             <br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>"
                 value="content" <?php checked( $myincludecontent, 'content' ); ?> ><?php _e( 'Full Content', 'sg-jqvs' ); ?>
             <br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'myincludecontent' ); ?>"
                 value="excerpt" <?php checked( $myincludecontent, 'excerpt' ); ?> ><?php _e( 'Excerpt only', 'sg-jqvs' ); ?>
         </p>
         <p>
             <?php _e( 'Show Date:', 'sg-jqvs' ); ?><br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'myshowdate' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'myshowdate' ); ?>"
                 value="true" <?php checked( $myshowdate, 'true' ); ?> ><?php _e( 'True', 'sg-jqvs' ); ?>
             <br />
-            <input type="radio" 
-                name="<?php echo $this->get_field_name( 'myshowdate' ); ?>" 
+            <input type="radio"
+                name="<?php echo $this->get_field_name( 'myshowdate' ); ?>"
                 value="false" <?php checked( $myshowdate, 'false' ); ?> ><?php _e( 'False', 'sg-jqvs' ); ?>
         </p>
         <p>
@@ -269,7 +269,7 @@ class sg_jquery_scroller_widget extends WP_Widget {
                 <li>
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     <?php if ( $myshowdate == 'true' ) { ?>
-                        <br /><?php 
+                        <br /><?php
                                 $pfx_date = get_the_date();
                                 echo $pfx_date; ?>
                     <?php } ?>
@@ -369,7 +369,7 @@ function sg_jquery_scroller_shortcode( $atts ) {
             text-align: left;
 	    }
         .scrollingtext ul {
-            text-indent: none;        
+            text-indent: none;
         }
         .scrollingtext ul li {
             padding-bottom: 10px;
