@@ -27,7 +27,7 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 <li>Easy to install and configure.</li>
 <li>It scrolls vertically so you can display more posts.</li>
 <li>You can scroll top-to-bottom or bottom-to-top.</li>
-<li>You can hise the title of posts and pages being scrolled.</li>
+<li>You can hide the title of posts and pages being scrolled.</li>
 <li>You can customize the height and width of the widget.</li>
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
@@ -41,7 +41,7 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 jQuery Vertical Slider supports full localization. Just place your .mo files in the languages folder and set your language code in the wp-config.php file.
 
 = Shortcode = 
-<b>Usage:</b> [sgvscroller postcount="5" category="1" posttype="post" width="250px" height="200px" startfrom="bottom" includecontent="excerpt" showdate="true"]
+<b>Usage:</b> [sgvscroller postcount="5" category="1" posttype="post" width="250px" height="200px" startfrom="bottom" includecontent="excerpt" showdate="true" showdateformat="F, Y"]
 
 postcount (optional, default value = 5): Sets the number of posts displayed by the scroller. Usage: postcount="5".
 
@@ -59,12 +59,14 @@ includecontent (optional, default value = none): Allows you to display excerpt, 
 
 showdate (optional, default value = false): Allows you to display the post date for each post displayed in the scroller. Usage: showdate="true". Options: 'true' or 'false'
 
+showdateformat (optional, default value = 'F, Y'): Allows you to configure format in which the post date for each post is displayed in the scroller. Usage: showdateformat="F, Y". You can use any valid format described in the [Date Formats](http://codex.wordpress.org/Formatting_Date_and_Time/) page
+
 <b>Shortcode Features</b>
 <ul>
 <li>Easy to install and configure.</li>
 <li>It scrolls vertically so you can display more posts.</li>
 <li>You can scroll top-to-bottom or bottom-to-top.</li>
-<li>You can hise the title of posts and pages being scrolled.</li>
+<li>You can hide the title of posts and pages being scrolled.</li>
 <li>You can customize the height and width of the widget.</li>
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
