@@ -1,9 +1,9 @@
-=== Plugin Name ===
+=== jQuery Vertical Scroller ===
 Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
 Tested up to: 3.5.2
-Stable tag: 2.2
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,12 +27,13 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 <li>Easy to install and configure.</li>
 <li>It scrolls vertically so you can display more posts.</li>
 <li>You can scroll top-to-bottom or bottom-to-top.</li>
+<li>You can hise the title of posts and pages being scrolled.</li>
 <li>You can customize the height and width of the widget.</li>
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
 <li>You can customize to display either the content, excerpt or just the heading.</li>
-<li>You can customize to display the post date.</li>
+<li>You can customize to display the post date in various date formats.</li>
 <li>Supports custom 'read more...' text so you can add your own custom text</li>
 </ul>
 
@@ -63,17 +64,18 @@ showdate (optional, default value = false): Allows you to display the post date 
 <li>Easy to install and configure.</li>
 <li>It scrolls vertically so you can display more posts.</li>
 <li>You can scroll top-to-bottom or bottom-to-top.</li>
+<li>You can hise the title of posts and pages being scrolled.</li>
 <li>You can customize the height and width of the widget.</li>
 <li>You can customize the type of recent posts to display.</li>
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
 <li>You can customize to display either the excerpt or just the heading.</li>
-<li>You can customize to display the post date.</li>
+<li>You can customize to display the post date in various [date formats](http://codex.wordpress.org/Formatting_Date_and_Time/).</li>
 <li>Displays 'read more...' text at bottom of scroller</li>
 </ul>
 
 = Support =
-Email us on info@sirisgraphics.com or <a href="http://sirisgraphics.com">contact us</a> for any kind of support. We promise to get back to you as soon a possible.
+Email us on info@sirisgraphics.com or <a href="http://sirisgraphics.com">contact us</a> for any kind of support. We promise to get back to you as soon as possible.
 
 Like our plugin? Please rate us and send us a comment so we can make the plugin better for you.
 
@@ -109,6 +111,10 @@ Shortcode
 
 == Changelog ==
 
+= 2.2 =
+* Added full content support in shortcode
+* Tested upto Wordpress version 3.5.2
+
 = 2.1 = 
 * Updated shortcode function to add excerpt and date
 * Updated widget to add date
@@ -133,6 +139,8 @@ Shortcode
 
 == Upgrade Notice ==
 
-= 2.2 =
-* Added full content support in shortcode
+= 2.3 =
+* Added option to hide titles from scroll when using as widget and shortcode
+* Added option to customize date formats for widget and shortcode
+* Added functionality to manage element layout through css3 (basic functionality only)
 * As usual, if you any hiccups, email us at info@sirisgraphics.com
