@@ -59,7 +59,7 @@ includecontent (optional, default value = none): Allows you to display excerpt, 
 
 showdate (optional, default value = false): Allows you to display the post date for each post displayed in the scroller. Usage: showdate="true". Options: 'true' or 'false'
 
-showdateformat (optional, default value = 'F, Y'): Allows you to configure format in which the post date for each post is displayed in the scroller. Usage: showdateformat="F, Y". You can use any valid format described in the [Date Formats](http://codex.wordpress.org/Formatting_Date_and_Time/) page
+showdateformat (optional, default value = 'F, Y'): Allows you to configure format in which the post date for each post is displayed in the scroller. Usage: showdateformat="F, Y". You can use any valid format described in the [Date Formats](http://codex.wordpress.org/Formatting_Date_and_Time) page
 
 <b>Shortcode Features</b>
 <ul>
@@ -72,7 +72,7 @@ showdateformat (optional, default value = 'F, Y'): Allows you to configure forma
 <li>You can customize the category of posts to display.</li>
 <li>You can customize the number of recent posts to display.</li>
 <li>You can customize to display either the excerpt or just the heading.</li>
-<li>You can customize to display the post date in various [date formats](http://codex.wordpress.org/Formatting_Date_and_Time/).</li>
+<li>You can customize to display the post date in various [date formats](http://codex.wordpress.org/Formatting_Date_and_Time).</li>
 <li>Displays 'read more...' text at bottom of scroller</li>
 </ul>
 
