@@ -2,8 +2,8 @@
 Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
-Tested up to: 3.7
-Stable tag: 2.4
+Tested up to: 3.8
+Stable tag: 2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,10 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 
 <b>Localization</b>
 jQuery Vertical Slider supports full localization. Just place your .mo files in the languages folder and set your language code in the wp-config.php file.
+
+Translation Files included:
+Italian by Vamsi Pulavarthi (Google Translate)
+Serbo-Croatian by <a href="http://www.webhostinghub.com/" target="_blank">Borisa Djuraskovic</a>
 
 = Shortcode = 
 <b>Usage:</b> [sgvscroller postcount="5" category="1" posttype="post" width="250px" height="200px" startfrom="bottom" includecontent="excerpt" showdate="true" showdateformat="F, Y"]
@@ -113,6 +117,9 @@ Shortcode
 
 == Changelog ==
 
+= 2.4 =
+* Tested with Wordpress Version 3.7
+
 = 2.3 =
 * Added option to hide titles from scroll when using as widget and shortcode
 * Added option to customize date formats for widget and shortcode
@@ -146,6 +153,7 @@ Shortcode
 
 == Upgrade Notice ==
 
-= 2.4 =
-* Tested with Wordpress Version 3.7
+= 2.5 =
+* Tested with Wordpress Version 3.8
+* Added Serbo-Croatian Translations by Borisa Djuraskovic
 * As usual, if you any hiccups, email us at info@sirisgraphics.com
