@@ -40,8 +40,8 @@ Just scroll on over to our website to see this plugin at work: <a href="http://s
 <b>Localization</b>
 jQuery Vertical Slider supports full localization. Just place your .mo files in the languages folder and set your language code in the wp-config.php file.
 
-Translation Files included:
-Italian by Vamsi Pulavarthi (Google Translate)
+Translation Files included: <br />
+Italian by Vamsi Pulavarthi (Google Translate) <br />
 Serbo-Croatian by <a href="http://www.webhostinghub.com/" target="_blank">Borisa Djuraskovic</a>
 
 = Shortcode = 
