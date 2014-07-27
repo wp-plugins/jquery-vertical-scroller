@@ -2,8 +2,8 @@
 Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 2.5
+Tested up to: 3.9.1
+Stable tag: 2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,6 +117,10 @@ Shortcode
 
 == Changelog ==
 
+= 2.5 =
+* Tested with Wordpress Version 3.8
+* Added Serbo-Croatian Translations by Borisa Djuraskovic
+
 = 2.4 =
 * Tested with Wordpress Version 3.7
 
@@ -153,7 +157,6 @@ Shortcode
 
 == Upgrade Notice ==
 
-= 2.5 =
-* Tested with Wordpress Version 3.8
-* Added Serbo-Croatian Translations by Borisa Djuraskovic
+= 2.6 =
+* Tested with Wordpress Version 3.9.1
 * As usual, if you any hiccups, email us at info@sirisgraphics.com
