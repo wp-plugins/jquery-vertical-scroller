@@ -3,7 +3,7 @@ Contributors: vamsitech, sirisgraphics
 Tags: widget, jQuery, vertical slider, velocity, direction, post scroller, Free scrolling news wordpress plugin, News plugin WordPress, Scrolling posts WordPress, Vertical posts, Vertical scrolling posts, WordPress dynamic posts, scroller, ticker, widget, Recent Posts scroller
 Requires at least: 3.4
 Tested up to: 4.0
-Stable tag: 2.7
+Stable tag: 2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,9 +45,23 @@ Italian by Vamsi Pulavarthi (Google Translate) <br />
 Serbo-Croatian by <a href="http://www.webhostinghub.com/" target="_blank">Borisa Djuraskovic</a>
 
 = Shortcode = 
-<b>Usage:</b> [sgvscroller postcount="5" category="1" posttype="post" width="250px" height="200px" startfrom="bottom" includecontent="excerpt" showdate="true" showdateformat="F, Y"]
+<b>Usage:</b> [sgvscroller postcount="5" sortby="post_date" sortorder="DESC" category="1" posttype="post" width="250px" height="200px" startfrom="bottom" includecontent="excerpt" showdate="true" showdateformat="F, Y"]
 
 postcount (optional, default value = 5): Sets the number of posts displayed by the scroller. Usage: postcount="5".
+
+sortby (optional, default value = post_date): Set the Order By option for getting posts. 
+        Valid Values:   'none' - No order (available with Version 2.8).
+                        'ID' - Order by post id. Note the capitalization.
+                        'author' - Order by author.
+                        'title' - Order by title.
+                        'date' - Order by date.
+                        'modified' - Order by last modified date.
+                        'parent' - Order by post/page parent id.
+                        'rand' - Random order.
+                        'comment_count' - Order by number of comments (available with Version 2.9). 
+        Usage: sortby="post_date" 
+
+sortorder (optional, default value = DESC): Sorts the posts in ascending or descending order of post date. Usage: sortorder="ASC" or "DESC"
 
 category (optional, default value = 1): Sets the category to be displayed by the scroller. Usage: category="1".
 
@@ -117,6 +131,12 @@ Shortcode
 
 == Changelog ==
 
+= 2.7 =
+* Tested with Wordpress Version 4.0
+
+= 2.6 =
+* Tested with Wordpress Version 3.9.1
+
 = 2.5 =
 * Tested with Wordpress Version 3.8
 * Added Serbo-Croatian Translations by Borisa Djuraskovic
@@ -157,6 +177,6 @@ Shortcode
 
 == Upgrade Notice ==
 
-= 2.6 =
-* Tested with Wordpress Version 3.9.1
+= 2.8 =
+* Adding Sorting option to Shortcode
 * As usual, if you any hiccups, email us at info@sirisgraphics.com
