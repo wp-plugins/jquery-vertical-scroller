@@ -131,6 +131,9 @@ Shortcode
 
 == Changelog ==
 
+= 2.8 =
+* Adding Sorting option to Shortcode
+
 = 2.7 =
 * Tested with Wordpress Version 4.0
 
